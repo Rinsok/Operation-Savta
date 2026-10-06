@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7868d1d35b68eb94297a51c1b50d1a97
+guid: 12c89249e20036b469b1fa79244ac2b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3818497109488991550
-    second: OrtalReadyForUs_0
+      213: 7828953655764077758
+    second: OrtalK-Side-Standing-P_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,23 +102,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OrtalReadyForUs_0
+      name: OrtalK-Side-Standing-P_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 4
-        width: 254
-        height: 642
+        x: 62
+        y: 13
+        width: 176
+        height: 636
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3d72fac3e60ef430800000000000000
-      internalID: 3818497109488991550
+      spriteID: ebc40deced706ac60800000000000000
+      internalID: 7828953655764077758
       vertices: []
       indices: 
       edges: []
@@ -127,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c74df033bc3df1e46b05e9e32b7e2f90
     internalID: 0
     vertices: []
     indices: 
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OrtalReadyForUs_0: 3818497109488991550
+      OrtalK-Side-Standing-P_0: 7828953655764077758
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

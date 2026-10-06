@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PlayableCharacter : IDamagable
+public abstract class PlayableCharacter : MonoBehaviour, IDamagable
 {
     protected int speed;
     protected int maxHP;
