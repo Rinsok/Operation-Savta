@@ -3,11 +3,23 @@ using UnityEngine;
 public class SwitchPlayer : MonoBehaviour
 {
     [SerializeField] private int currentCharacter;
+
+    [SerializeField] private GameObject moti;
+    [SerializeField] private GameObject ortal;
+    [SerializeField] private GameObject exo;
+    [SerializeField] private GameObject[] players = new GameObject [3]; 
     private Vector3 lastPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentCharacter = Random.Range(0, transform.childCount);
+        players[0] = moti;
+        players[1] = ortal;
+        players[2] = exo;
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].SetActive(false);
+        }
+        currentCharacter = Random.Range(0, 3);
         UpdateCharacter();
     }
 
@@ -16,25 +28,31 @@ public class SwitchPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            lastPosition = transform.GetChild(currentCharacter).position;
+            lastPosition = players[currentCharacter].transform.position;
             currentCharacter++;
             
-            if (currentCharacter >= transform.childCount)
+            if (currentCharacter >= 3)
             {
                 currentCharacter = 0;
             }
-            transform.GetChild(currentCharacter).position = lastPosition;
+            players[currentCharacter].transform.position = lastPosition;
             UpdateCharacter();
         }
     }
 
     private void UpdateCharacter()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < players.Length; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(false);
+            if (i == currentCharacter)
+            {
+                players[i].SetActive(true);
+            }
+            else
+            {
+                players[i].SetActive(false);
+            }
         }
-        transform.GetChild(currentCharacter).gameObject.SetActive(true);
 
     }
 }

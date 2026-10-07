@@ -26,11 +26,11 @@ public class CharacterController : PlayableCharacter
         
         if (WallWalk)
         {
-            transform.parent.rotation = Quaternion.Euler(transform.parent.rotation.x, transform.parent.rotation.y, 90);
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 90);
         }
         else
         {
-            transform.parent.rotation = Quaternion.Euler(transform.parent.rotation.x, transform.parent.rotation.y, 0);
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
         if (Input.GetButtonDown("Jump"))
         {
