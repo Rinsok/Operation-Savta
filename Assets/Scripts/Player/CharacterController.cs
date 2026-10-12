@@ -12,6 +12,8 @@ public class CharacterController : PlayableCharacter
     [SerializeField] private bool water;
     [SerializeField] private bool enableAbility;
     [SerializeField] private bool WallWalk = false;
+    [SerializeField] private Animator ortalAnim;
+
 
     public CharacterController()
     {
@@ -22,18 +24,38 @@ public class CharacterController : PlayableCharacter
     }
     void Update()
     {
+        Debug.Log(speed + " " + maxHP + " " + currentHP);
         horizontal = Input.GetAxis("Horizontal");
-        
-        if (WallWalk)
+        if (horizontal == 0)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 90);
+            ortalAnim.SetBool("isRun", false);
+            
         }
         else
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+            ortalAnim.SetBool("isRun", true);
+
+        }
+        if (character.m_Grounded)
+        {
+            ortalAnim.SetBool("isJump", false);
+        }
+        else 
+        {
+            ortalAnim.SetBool("isJump", true);
+        }
+
+        if (WallWalk)
+        {
+            //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 90);
+        }
+        else
+        {
+            //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         }
         if (Input.GetButtonDown("Jump"))
         {
+            ortalAnim.SetBool("isJump", true);
             jump = true;
         }
         

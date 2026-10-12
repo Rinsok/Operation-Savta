@@ -105,12 +105,12 @@ TextureImporter:
       name: OrtalK-Side-Standing-P_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 13
+        x: 41
+        y: 7
         width: 176
         height: 636
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -127,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c74df033bc3df1e46b05e9e32b7e2f90
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 

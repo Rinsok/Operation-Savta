@@ -9,6 +9,7 @@ public class ExoController : PlayableCharacter
     [SerializeField] private bool fish;
     [SerializeField] private bool water;
     [SerializeField] private bool enableAbility;
+    [SerializeField] private Animator exoAnim;
 
     public ExoController()
     {
@@ -20,15 +21,15 @@ public class ExoController : PlayableCharacter
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-
-        if (Input.GetButtonDown("Jump"))
+        if (horizontal == 0)
         {
-            jump = true;
+            exoAnim.SetBool("isRun", false);
+
         }
-
-        if (water && fish)
+        else
         {
-            vertical = Input.GetAxis("Vertical");
+            exoAnim.SetBool("isRun", true);
+
         }
     }
 
@@ -61,11 +62,6 @@ public class ExoController : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Water"))
-        {
-            Debug.Log("Enabled");
-
-            enableAbility = true;
-        }
+       
     }
 }
