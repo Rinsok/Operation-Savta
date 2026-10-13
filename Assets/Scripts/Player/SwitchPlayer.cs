@@ -35,7 +35,15 @@ public class SwitchPlayer : MonoBehaviour
             {
                 currentCharacter = 0;
             }
-            players[currentCharacter].transform.position = lastPosition;
+            if (players[currentCharacter] == players[2])
+            {
+                players[currentCharacter].transform.position = new Vector2(lastPosition.x, lastPosition.y - 0.453f);
+
+            }
+            else
+            {
+                players[currentCharacter].transform.position = lastPosition;
+            }
             UpdateCharacter();
         }
     }

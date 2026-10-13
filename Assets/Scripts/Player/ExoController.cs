@@ -5,11 +5,10 @@ public class ExoController : PlayableCharacter
     [SerializeField] Controller2D character;
     [SerializeField] private float horizontal;
     [SerializeField] private bool jump = false;
-    [SerializeField] private float vertical;
-    [SerializeField] private bool fish;
-    [SerializeField] private bool water;
+    [SerializeField] private bool wall;
     [SerializeField] private bool enableAbility;
     [SerializeField] private Animator exoAnim;
+
 
     public ExoController()
     {
@@ -47,7 +46,7 @@ public class ExoController : PlayableCharacter
 
     public override void Movement()
     {
-        character.Move(horizontal * speed * Time.fixedDeltaTime, false, jump);
+        character.Move(horizontal * speed * Time.fixedDeltaTime, false, jump, wall);
     }
 
     public override void SpecialAbility()
@@ -62,6 +61,15 @@ public class ExoController : PlayableCharacter
 
     void OnTriggerEnter2D(Collider2D col)
     {
-       
+       if(col.CompareTag("Wall"))
+        {
+            Debug.Log("walls");
+            wall = true;
+        }
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        Debug.Log("no walls");
+        wall = false;
     }
 }

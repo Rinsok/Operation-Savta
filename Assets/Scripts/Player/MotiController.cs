@@ -60,7 +60,7 @@ public class MotiController : PlayableCharacter
 
     public override void Movement()
     {
-        character.Move(horizontal * speed * Time.fixedDeltaTime, false, jump);
+        character.Move(horizontal * speed * Time.fixedDeltaTime, false, jump, false);
     }
 
     public override void SpecialAbility()
