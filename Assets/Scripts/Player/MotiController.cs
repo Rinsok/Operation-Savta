@@ -6,21 +6,11 @@ public class MotiController : PlayableCharacter
     [SerializeField] private float horizontal;
     [SerializeField] private bool jump = false;
     [SerializeField] private float vertical;
-    [SerializeField] private bool fish;
-    [SerializeField] private bool water;
-    [SerializeField] private bool enableAbility;
+    [SerializeField] private GameObject bullet;
     [SerializeField] private Animator motiAnim;
 
-    public MotiController()
-    {
-        speed = 10;
-        maxHP = 4;
-        currentHP = 4;
-
-    }
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
         Debug.Log(speed + " " + maxHP + " " + currentHP);
         horizontal = Input.GetAxis("Horizontal");
         if (horizontal == 0)
@@ -31,7 +21,6 @@ public class MotiController : PlayableCharacter
         else
         {
             motiAnim.SetBool("isRun", true);
-
         }
         if (character.m_Grounded)
         {
@@ -67,7 +56,7 @@ public class MotiController : PlayableCharacter
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Debug.Log("Shoot");
+
             motiAnim.SetBool("isShoot", true);
         }
         else

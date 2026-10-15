@@ -8,20 +8,8 @@ public class CharacterController : PlayableCharacter
     [SerializeField] private float horizontal;
     [SerializeField] private bool jump = false;
     [SerializeField] private float vertical;
-    [SerializeField] private bool fish;
-    [SerializeField] private bool water;
-    [SerializeField] private bool enableAbility;
-    [SerializeField] private bool WallWalk = false;
     [SerializeField] private Animator ortalAnim;
 
-
-    public CharacterController()
-    {
-        speed = 10;
-        maxHP = 4;
-        currentHP = 4;
-
-    }
     void Update()
     {
         Debug.Log(speed + " " + maxHP + " " + currentHP);
@@ -29,12 +17,10 @@ public class CharacterController : PlayableCharacter
         if (horizontal == 0)
         {
             ortalAnim.SetBool("isRun", false);
-            
         }
         else
         {
             ortalAnim.SetBool("isRun", true);
-
         }
         if (character.m_Grounded)
         {
@@ -44,29 +30,13 @@ public class CharacterController : PlayableCharacter
         {
             ortalAnim.SetBool("isJump", true);
         }
-
-        if (WallWalk)
-        {
-            //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 90);
-        }
-        else
-        {
-            //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
-        }
         if (Input.GetButtonDown("Jump"))
         {
             ortalAnim.SetBool("isJump", true);
             jump = true;
         }
         
-        if(water && fish)
-        {
-            vertical = Input.GetAxis("Vertical");
-        }
-        if (enableAbility)
-        {
-            SpecialAbility();
-        }
+        SpecialAbility();
 
     }
 
@@ -97,29 +67,4 @@ public class CharacterController : PlayableCharacter
         TakeDamage(1);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.CompareTag("Destroy"))
-        {
-            Debug.Log("Enabled");
-
-            enableAbility = true;
-        }
-        else if (col.CompareTag("Wall"))
-        {
-            Debug.Log("Enabled");
-
-            WallWalk = !WallWalk;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.CompareTag("Destroy"))
-        {
-            Debug.Log("Disable");
-
-            enableAbility = false;
-        }
-    }
 }

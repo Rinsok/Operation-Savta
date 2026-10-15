@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public abstract class Traps : IDamagable
+public abstract class Traps : MonoBehaviour, IDamagable
 {
     LayerMask whatIDamage;
 
-    void ApplyDamage(IDamagable damagable)
+    public void ApplyDamage(IDamagable damagable)
     {
         damagable.TakeDamage(1);
     }

@@ -61,6 +61,10 @@ public class SwitchPlayer : MonoBehaviour
                 players[i].SetActive(false);
             }
         }
+    }
 
+    public GameObject GetCurrentCharacter()
+    {
+        return players[currentCharacter];
     }
 }

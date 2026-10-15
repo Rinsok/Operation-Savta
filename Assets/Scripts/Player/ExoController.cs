@@ -10,13 +10,6 @@ public class ExoController : PlayableCharacter
     [SerializeField] private Animator exoAnim;
 
 
-    public ExoController()
-    {
-        speed = 10;
-        maxHP = 4;
-        currentHP = 4;
-
-    }
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
