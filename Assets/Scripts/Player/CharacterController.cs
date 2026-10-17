@@ -72,18 +72,6 @@ public class CharacterController : PlayableCharacter
     {
         TakeDamage(1);
     }
-    public int GetCurrentHP()
-    {
-        return currentHP;
-    }
-    public int GetMaxHP()
-    {
-        return maxHP;
-    }
 
-    public void SetHP(int newHP)
-    {
-        maxHP = newHP; 
-    }    
 
 }

@@ -72,10 +72,5 @@ public class MotiController : PlayableCharacter
         TakeDamage(1);
     }
 
-    public void SetHP(int newHP)
-    {
-        maxHP = newHP;
-    }
-
 
 }

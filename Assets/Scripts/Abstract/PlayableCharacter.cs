@@ -25,7 +25,19 @@ public abstract class PlayableCharacter : MonoBehaviour, IDamagable
     {
         Debug.Log("You dead");
     }
+    public int GetCurrentHP()
+    {
+        return currentHP;
+    }
+    public int GetMaxHP()
+    {
+        return maxHP;
+    }
 
+    public void SetHP(int newHP)
+    {
+        maxHP = newHP;
+    }
 
 
 }

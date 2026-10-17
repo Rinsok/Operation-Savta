@@ -66,9 +66,7 @@ public class ExoController : PlayableCharacter
         Debug.Log("no walls");
         wall = false;
     }
-    public void SetHP(int newHP)
-    {
-        maxHP = newHP;
-    }
+
+
 
 }

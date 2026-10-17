@@ -28,8 +28,10 @@ public class HPBar : MonoBehaviour
         {
             health = numOfHearts;
         }
-
-
+        health = Mathf.Min(ortal.GetCurrentHP(), moti.GetCurrentHP(), exo.GetCurrentHP());
+        ortal.SetHP(health);
+        moti.SetHP(health); 
+        exo.SetHP(health);  
 
         for (int i = 0; i < hearts.Length; i++)
         {
