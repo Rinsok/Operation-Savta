@@ -7,7 +7,7 @@ public class ExoController : PlayableCharacter
     [SerializeField] private bool jump = false;
     [SerializeField] private bool wall;
     [SerializeField] private bool enableAbility;
-    [SerializeField] private Animator exoAnim;
+    [SerializeField] public Animator exoAnim;
 
 
     void Update()
@@ -59,10 +59,16 @@ public class ExoController : PlayableCharacter
             Debug.Log("walls");
             wall = true;
         }
+
     }
     void OnTriggerExit2D(Collider2D col)
     {
         Debug.Log("no walls");
         wall = false;
     }
+    public void SetHP(int newHP)
+    {
+        maxHP = newHP;
+    }
+
 }

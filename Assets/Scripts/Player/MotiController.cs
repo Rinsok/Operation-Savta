@@ -7,7 +7,7 @@ public class MotiController : PlayableCharacter
     [SerializeField] private bool jump = false;
     [SerializeField] private float vertical;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private Animator motiAnim;
+    [SerializeField] public Animator motiAnim;
 
     void Update()
     {
@@ -71,5 +71,11 @@ public class MotiController : PlayableCharacter
     {
         TakeDamage(1);
     }
+
+    public void SetHP(int newHP)
+    {
+        maxHP = newHP;
+    }
+
 
 }

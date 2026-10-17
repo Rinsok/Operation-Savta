@@ -67,4 +67,18 @@ public class SwitchPlayer : MonoBehaviour
     {
         return players[currentCharacter];
     }
+
+    public void disableMovement()
+    {
+        moti.GetComponent<PlayableCharacter>().enabled = false;
+        ortal.GetComponent<PlayableCharacter>().enabled = false;
+        exo.GetComponent<PlayableCharacter>().enabled = false;
+    }
+    public void enableMovement()
+    {
+        moti.GetComponent<PlayableCharacter>().enabled = true;
+        ortal.GetComponent<PlayableCharacter>().enabled = true;
+        exo.GetComponent<PlayableCharacter>().enabled = true;
+    }
+
 }

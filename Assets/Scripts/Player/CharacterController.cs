@@ -8,7 +8,13 @@ public class CharacterController : PlayableCharacter
     [SerializeField] private float horizontal;
     [SerializeField] private bool jump = false;
     [SerializeField] private float vertical;
-    [SerializeField] private Animator ortalAnim;
+    [SerializeField] public Animator anim;
+
+    void Start()
+    {
+        currentHP = maxHP;
+    }
+
 
     void Update()
     {
@@ -16,23 +22,23 @@ public class CharacterController : PlayableCharacter
         horizontal = Input.GetAxis("Horizontal");
         if (horizontal == 0)
         {
-            ortalAnim.SetBool("isRun", false);
+            anim.SetBool("isRun", false);
         }
         else
         {
-            ortalAnim.SetBool("isRun", true);
+            anim.SetBool("isRun", true);
         }
         if (character.m_Grounded)
         {
-            ortalAnim.SetBool("isJump", false);
+            anim.SetBool("isJump", false);
         }
         else 
         {
-            ortalAnim.SetBool("isJump", true);
+            anim.SetBool("isJump", true);
         }
         if (Input.GetButtonDown("Jump"))
         {
-            ortalAnim.SetBool("isJump", true);
+            anim.SetBool("isJump", true);
             jump = true;
         }
         
@@ -66,5 +72,18 @@ public class CharacterController : PlayableCharacter
     {
         TakeDamage(1);
     }
+    public int GetCurrentHP()
+    {
+        return currentHP;
+    }
+    public int GetMaxHP()
+    {
+        return maxHP;
+    }
+
+    public void SetHP(int newHP)
+    {
+        maxHP = newHP; 
+    }    
 
 }

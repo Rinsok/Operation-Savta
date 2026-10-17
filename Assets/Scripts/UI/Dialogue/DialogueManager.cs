@@ -7,9 +7,9 @@ public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nametext;
     public TextMeshProUGUI dialogueText;
+    [SerializeField] private Animator BG;
+    public bool noDial = false;
     private Queue <string> sentences;
-    [SerializeField] public GameObject canvas;
-    [SerializeField] public Animator anubis;
     public int lineIndex = 0;
 
 
@@ -20,9 +20,9 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
-        
+        noDial = false;
+        BG.SetBool("ComingIn", true);
         nametext.text = dialogue.name;
-
         sentences.Clear();
         
         foreach (string sentece in dialogue.sentences)
@@ -57,7 +57,9 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
-        Destroy(canvas);
+        noDial = true;
+        BG.SetBool("ComingIn", false);
+        sentences.Clear();
     }
 
 

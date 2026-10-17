@@ -25,4 +25,7 @@ public abstract class PlayableCharacter : MonoBehaviour, IDamagable
     {
         Debug.Log("You dead");
     }
+
+
+
 }
