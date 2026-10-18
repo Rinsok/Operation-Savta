@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class PlayableCharacter : MonoBehaviour, IDamagable
 {
-    protected int speed = 10;
+    protected int speed = 15;
     protected int maxHP = 3;
     protected int currentHP = 3;
     public abstract void Movement();
