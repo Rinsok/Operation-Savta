@@ -10,6 +10,7 @@ public class HPBar : MonoBehaviour
     [SerializeField] CharacterController ortal;
     [SerializeField] MotiController moti;
     [SerializeField] ExoController exo;
+    [SerializeField] Transform respawn;
     public Image[] hearts;
     public Sprite fullHearts;
     public Sprite emptyHearts;
@@ -29,9 +30,19 @@ public class HPBar : MonoBehaviour
             health = numOfHearts;
         }
         health = Mathf.Min(ortal.GetCurrentHP(), moti.GetCurrentHP(), exo.GetCurrentHP());
-        ortal.SetHP(health);
-        moti.SetHP(health); 
-        exo.SetHP(health);  
+        ortal.updateHP(health);
+        moti.updateHP(health); 
+        exo.updateHP(health);  
+
+        if(health <= 0)
+        {
+            ortal.updateHP(numOfHearts);
+            moti.updateHP(numOfHearts);
+            exo.updateHP(numOfHearts);
+            ortal.transform.position = respawn.position;
+            moti.transform.position = respawn.position;
+            exo.transform.position = respawn.position;
+        }
 
         for (int i = 0; i < hearts.Length; i++)
         {

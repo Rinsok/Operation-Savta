@@ -38,6 +38,10 @@ public abstract class PlayableCharacter : MonoBehaviour, IDamagable
     {
         maxHP = newHP;
     }
+    public void updateHP(int newCurrentHP)
+    {
+        currentHP = newCurrentHP;
+    }
 
 
 }

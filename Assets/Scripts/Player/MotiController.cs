@@ -16,7 +16,6 @@ public class MotiController : PlayableCharacter
         if (horizontal == 0)
         {
             motiAnim.SetBool("isRun", false);
-
         }
         else
         {
@@ -56,13 +55,11 @@ public class MotiController : PlayableCharacter
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-
-            motiAnim.SetBool("isShoot", true);
+            motiAnim.SetBool("isShoot", true);  
         }
         else
         {
             motiAnim.SetBool("isShoot", false);
-
         }
 
     }
@@ -71,6 +68,5 @@ public class MotiController : PlayableCharacter
     {
         TakeDamage(1);
     }
-
 
 }

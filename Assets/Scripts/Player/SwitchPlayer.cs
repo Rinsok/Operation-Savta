@@ -46,6 +46,7 @@ public class SwitchPlayer : MonoBehaviour
             }
             UpdateCharacter();
         }
+        
     }
 
     private void UpdateCharacter()
@@ -70,15 +71,38 @@ public class SwitchPlayer : MonoBehaviour
 
     public void disableMovement()
     {
-        moti.GetComponent<PlayableCharacter>().enabled = false;
-        ortal.GetComponent<PlayableCharacter>().enabled = false;
-        exo.GetComponent<PlayableCharacter>().enabled = false;
-    }
-    public void enableMovement()
-    {
-        moti.GetComponent<PlayableCharacter>().enabled = true;
-        ortal.GetComponent<PlayableCharacter>().enabled = true;
-        exo.GetComponent<PlayableCharacter>().enabled = true;
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayableCharacter>().enabled = false;
+        }
     }
 
+    public void enableMovement()
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayableCharacter>().enabled = true;
+        }
+    }
+
+    public void SetPlayerSpawn(Transform spawnPoint)
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayableCharacter>().transform.position = spawnPoint.position;
+        }
+    }
+
+    public void SetAllHP(int hp)
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayableCharacter>().SetHP(hp);
+        }
+    }
+
+    public int minimumHP()
+    {
+       return Mathf.Min(players[0].GetComponent<PlayableCharacter>().GetCurrentHP(), players[1].GetComponent<PlayableCharacter>().GetCurrentHP(), players[2].GetComponent<PlayableCharacter>().GetCurrentHP());
+    }
 }
