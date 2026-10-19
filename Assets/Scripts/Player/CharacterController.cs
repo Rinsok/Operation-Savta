@@ -9,7 +9,9 @@ public class CharacterController : PlayableCharacter
     [SerializeField] private bool jump = false;
     [SerializeField] private float vertical;
     [SerializeField] public Animator anim;
-
+   
+    private GameObject breakableFloor;
+    private bool isSpecial = false;
     void Start()
     {
         currentHP = maxHP;
@@ -41,15 +43,16 @@ public class CharacterController : PlayableCharacter
             anim.SetBool("isJump", true);
             jump = true;
         }
-        
-        SpecialAbility();
+        if(isSpecial)
+        {
+            SpecialAbility();
+        }
 
     }
 
     void FixedUpdate()
     {
         Movement();
-
 
         jump = false;
     }
@@ -64,6 +67,7 @@ public class CharacterController : PlayableCharacter
         if (Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("kick");
+            Destroy(breakableFloor);
         }
 
     }
@@ -73,5 +77,23 @@ public class CharacterController : PlayableCharacter
         TakeDamage(1);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if(collision.gameObject.CompareTag("Breakable"))
+        {
+            breakableFloor = collision.gameObject;
+            isSpecial = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Breakable"))
+        {
+
+            breakableFloor = null;
+            isSpecial = false;
+        }
+    }
 
 }

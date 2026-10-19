@@ -9,6 +9,7 @@ TagManager:
   - Ortal
   - Moti
   - Exo
+  - Breakable
   layers:
   - Default
   - TransparentFX

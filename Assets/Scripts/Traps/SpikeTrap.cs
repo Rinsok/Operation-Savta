@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class SpikeTrap : Traps
 {
-    [SerializeField] SwitchPlayer character;
+    private SwitchPlayer character;
     private Vector2 side;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        character = FindAnyObjectByType<SwitchPlayer>();
     }
 
     // Update is called once per frame

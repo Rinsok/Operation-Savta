@@ -7,8 +7,10 @@ public class PickUpManager : MonoBehaviour
 
     public static PickUpManager instance;
 
-    public Text coinsText;
-    public int coins;
+    [SerializeField] private Text coinsText;
+    [SerializeField] private int coins = 0;
+    [SerializeField] private int totalCoins = 20;
+    [SerializeField] private GameObject totem;
 
     
     
@@ -20,7 +22,10 @@ public class PickUpManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (coins == totalCoins)
+        {
+
+        }
     }
 
 
