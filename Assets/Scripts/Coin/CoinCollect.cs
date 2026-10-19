@@ -21,6 +21,10 @@ public class CoinCollect : MonoBehaviour
         {
             PickUpManager.instance.AddCoins();
             this.gameObject.SetActive(false);
+            if(PickUpManager.instance.coins == PickUpManager.instance.totalCoins)
+            {
+                PickUpManager.instance.totem.SetActive(true);
+            }
         }
     }
 }
