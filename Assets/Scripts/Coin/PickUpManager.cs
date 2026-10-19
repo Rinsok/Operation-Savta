@@ -24,7 +24,7 @@ public class PickUpManager : MonoBehaviour
     {
         if (coins == totalCoins)
         {
-
+            totem.SetActive(true);
         }
     }
 

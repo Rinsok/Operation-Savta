@@ -6,11 +6,11 @@ public class HPBar : MonoBehaviour
     
     public int health;
     public int numOfHearts;
-
-    [SerializeField] CharacterController ortal;
-    [SerializeField] MotiController moti;
-    [SerializeField] ExoController exo;
-    [SerializeField] Transform respawn;
+    public AudioSource bg;
+    [SerializeField] public CharacterController ortal;
+    [SerializeField] public MotiController moti;
+    [SerializeField] public ExoController exo;
+    [SerializeField] public Transform respawn;
     public Image[] hearts;
     public Sprite fullHearts;
     public Sprite emptyHearts;
@@ -18,6 +18,7 @@ public class HPBar : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        bg = FindAnyObjectByType<AudioSource>();
         health = ortal.GetCurrentHP();
         numOfHearts = ortal.GetMaxHP();
     }
@@ -36,12 +37,7 @@ public class HPBar : MonoBehaviour
 
         if(health <= 0)
         {
-            ortal.updateHP(numOfHearts);
-            moti.updateHP(numOfHearts);
-            exo.updateHP(numOfHearts);
-            ortal.transform.position = respawn.position;
-            moti.transform.position = respawn.position;
-            exo.transform.position = respawn.position;
+            respawnFunc();
         }
 
         for (int i = 0; i < hearts.Length; i++)
@@ -65,5 +61,18 @@ public class HPBar : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+    }
+
+    public void respawnFunc()
+    {
+        ortal.updateHP(numOfHearts);
+        moti.updateHP(numOfHearts);
+        exo.updateHP(numOfHearts);
+        ortal.transform.position = respawn.position;
+        moti.transform.position = respawn.position;
+        exo.transform.position = respawn.position;
+        bg.Stop();
+        bg.Play();
+
     }
 }

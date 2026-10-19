@@ -11,7 +11,7 @@ public class CoinCollect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
 
@@ -20,7 +20,7 @@ public class CoinCollect : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             PickUpManager.instance.AddCoins();
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }

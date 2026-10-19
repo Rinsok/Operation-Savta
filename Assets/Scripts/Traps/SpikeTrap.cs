@@ -32,7 +32,7 @@ public class SpikeTrap : Traps
                     side = Vector2.right;
                 }
                 ApplyDamage(damagable);
-                col.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10f + side * 10f, ForceMode2D.Impulse);
+                col.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 6f + side * 15f, ForceMode2D.Impulse);
             }
         }
     }

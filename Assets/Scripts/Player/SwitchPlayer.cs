@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class SwitchPlayer : MonoBehaviour
@@ -7,7 +8,7 @@ public class SwitchPlayer : MonoBehaviour
     [SerializeField] private GameObject moti;
     [SerializeField] private GameObject ortal;
     [SerializeField] private GameObject exo;
-    [SerializeField] private GameObject[] players = new GameObject [3]; 
+    [SerializeField] private GameObject[] players = new GameObject[3];
     private Vector3 lastPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +31,7 @@ public class SwitchPlayer : MonoBehaviour
         {
             lastPosition = players[currentCharacter].transform.position;
             currentCharacter++;
-            
+
             if (currentCharacter >= 3)
             {
                 currentCharacter = 0;
@@ -46,7 +47,7 @@ public class SwitchPlayer : MonoBehaviour
             }
             UpdateCharacter();
         }
-        
+
     }
 
     private void UpdateCharacter()
@@ -103,6 +104,12 @@ public class SwitchPlayer : MonoBehaviour
 
     public int minimumHP()
     {
-       return Mathf.Min(players[0].GetComponent<PlayableCharacter>().GetCurrentHP(), players[1].GetComponent<PlayableCharacter>().GetCurrentHP(), players[2].GetComponent<PlayableCharacter>().GetCurrentHP());
+        return Mathf.Min(players[0].GetComponent<PlayableCharacter>().GetCurrentHP(), players[1].GetComponent<PlayableCharacter>().GetCurrentHP(), players[2].GetComponent<PlayableCharacter>().GetCurrentHP());
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
     }
 }

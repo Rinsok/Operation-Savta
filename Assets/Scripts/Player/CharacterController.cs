@@ -15,6 +15,10 @@ public class CharacterController : PlayableCharacter
     void Start()
     {
         currentHP = maxHP;
+        if (GameManager.Instance.collectedTotem)
+        {
+            currentHP += 1;
+        }
     }
 
 
