@@ -19,8 +19,21 @@ public class HPBar : MonoBehaviour
     void Start()
     {
         bg = FindAnyObjectByType<AudioSource>();
-        health = ortal.GetCurrentHP();
-        numOfHearts = ortal.GetMaxHP();
+        if (GameManager.Instance != null && GameManager.Instance.collectedTotem)
+        {
+            health = 4;
+            numOfHearts = 4;
+
+            ortal.SetHP(4);
+            moti.SetHP(4);
+            exo.SetHP(4);
+        }
+
+        else
+        {
+            health = ortal.GetCurrentHP();
+            numOfHearts = ortal.GetMaxHP();
+        }
     }
 
     // Update is called once per frame

@@ -1211,10 +1211,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 157404676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c46ef12d07b4c42b077126987bc451, type: 3}
+  m_Script: {fileID: 11500000, guid: f24aefa5183088c4fbbfc9fdf11ba9c3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  collectedTotem: 0
+  m_EditorClassIdentifier: Assembly-CSharp::NextLevel
 --- !u!1 &167202344
 GameObject:
   m_ObjectHideFlags: 0
@@ -10487,6 +10486,51 @@ MonoBehaviour:
   - {fileID: 870204716100053111, guid: c26b2816e6675954ba0dc67071837a6f, type: 3}
   - {fileID: 1675211116520362835, guid: f88b88e315225744584cd2050841fec4, type: 3}
   currentTrap: {fileID: 0}
+--- !u!1 &1981079559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1981079561}
+  - component: {fileID: 1981079560}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1981079560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981079559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c46ef12d07b4c42b077126987bc451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  collectedTotem: 0
+--- !u!4 &1981079561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981079559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.97134, y: -3.67495, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1986352279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2301822483085122393, guid: f7661d4fcaf126446ae277f8b3ecaf0e, type: 3}
@@ -16407,3 +16451,4 @@ SceneRoots:
   - {fileID: 1577989499}
   - {fileID: 362365646}
   - {fileID: 1120136932}
+  - {fileID: 1981079561}
