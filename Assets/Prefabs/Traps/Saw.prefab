@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7157127740023935748, guid: 7f14c0534eb07b84295a74ba7c7e3aa1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,7 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46e12b053af91e49afcf7e5650526f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SawTrap
-  character: {fileID: 0}
 --- !u!58 &3574392166145092252
 CircleCollider2D:
   m_ObjectHideFlags: 0

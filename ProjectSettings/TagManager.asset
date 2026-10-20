@@ -11,6 +11,8 @@ TagManager:
   - Exo
   - Breakable
   - Totem
+  - Door
+  - Bullet
   layers:
   - Default
   - TransparentFX

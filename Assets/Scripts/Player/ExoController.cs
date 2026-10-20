@@ -5,8 +5,7 @@ public class ExoController : PlayableCharacter
     [SerializeField] Controller2D character;
     [SerializeField] private float horizontal;
     [SerializeField] private bool jump = false;
-    [SerializeField] private bool wall;
-    [SerializeField] private bool enableAbility;
+    [SerializeField] private bool wall = false;
     [SerializeField] public Animator exoAnim;
 
 
@@ -28,12 +27,6 @@ public class ExoController : PlayableCharacter
     void FixedUpdate()
     {
         Movement();
-
-        if (enableAbility)
-        {
-            SpecialAbility();
-        }
-
         jump = false;
     }
 
@@ -44,7 +37,7 @@ public class ExoController : PlayableCharacter
 
     public override void SpecialAbility()
     {
-
+        wall = !wall;
     }
 
     public override void ApplyDamage(IDamagable damagable)
@@ -56,15 +49,16 @@ public class ExoController : PlayableCharacter
     {
        if(col.CompareTag("Wall"))
         {
-            Debug.Log("walls");
-            wall = true;
+            SpecialAbility();
         }
 
     }
     void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log("no walls");
-        wall = false;
+        if (col.CompareTag("Wall"))
+        {
+            SpecialAbility();
+        }
     }
 
 

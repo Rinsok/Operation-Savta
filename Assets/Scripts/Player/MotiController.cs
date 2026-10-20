@@ -8,6 +8,7 @@ public class MotiController : PlayableCharacter
     [SerializeField] private float vertical;
     [SerializeField] private GameObject bullet;
     [SerializeField] public Animator motiAnim;
+    [SerializeField] public Transform gun;
 
     void Update()
     {
@@ -34,8 +35,14 @@ public class MotiController : PlayableCharacter
             motiAnim.SetBool("isJump", true);
             jump = true;
         }
-        SpecialAbility();
-
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SpecialAbility();
+        }
+        else
+        {
+            motiAnim.SetBool("isShoot", false);
+        }
     }
 
     void FixedUpdate()
@@ -53,15 +60,9 @@ public class MotiController : PlayableCharacter
 
     public override void SpecialAbility()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            motiAnim.SetBool("isShoot", true);  
-        }
-        else
-        {
-            motiAnim.SetBool("isShoot", false);
-        }
+        motiAnim.SetBool("isShoot", true);
 
+        Instantiate(bullet, gun.position, Quaternion.identity);
     }
 
     public override void ApplyDamage(IDamagable damagable)

@@ -31,4 +31,11 @@ public class PickUpManager : MonoBehaviour
         coins++;
         coinsText.text = coins.ToString();
     }
+
+    public void RemoveCoins()
+    {
+        coins = 0;
+        coinsText.text = coins.ToString();
+    }
+
 }

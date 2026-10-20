@@ -71,7 +71,7 @@ public class CharacterController : PlayableCharacter
         if (Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("kick");
-            Destroy(breakableFloor);
+            breakableFloor.SetActive(false); 
         }
 
     }

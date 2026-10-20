@@ -23,7 +23,7 @@ public class LandMineTrap : Traps
             {
                 ApplyDamage(damagable);
                 col.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
-                Destroy(this.gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
