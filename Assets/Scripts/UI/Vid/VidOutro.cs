@@ -10,6 +10,15 @@ public class VidOutro : MonoBehaviour
     {
         VideoPlayer.loopPointReached += LoadScene;
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Application.Quit();
+        }
+
+    }
     void LoadScene(VideoPlayer vp)
     {
 
