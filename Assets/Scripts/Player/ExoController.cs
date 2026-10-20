@@ -45,7 +45,12 @@ public class ExoController : PlayableCharacter
         TakeDamage(1);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    public override void DoIdle()
+    {
+        exoAnim.SetBool("isRun", false);
+    }
+
+        void OnTriggerEnter2D(Collider2D col)
     {
        if(col.CompareTag("Wall"))
         {
@@ -60,6 +65,8 @@ public class ExoController : PlayableCharacter
             SpecialAbility();
         }
     }
+
+
 
 
 

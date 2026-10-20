@@ -45,6 +45,7 @@ public class NpcDialogueTrigger : MonoBehaviour
             TriggerDialogue();
             inDialogue = true;
             player.disableMovement();
+            player.SetAllIdle();
             
         }
 

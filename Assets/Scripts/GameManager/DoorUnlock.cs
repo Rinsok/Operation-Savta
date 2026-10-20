@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class DoorUnlock : MonoBehaviour
 {
-    [SerializeField] GameObject door;
+    [SerializeField] private GameObject door;
+    private  LastDoor lastDoor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if(door == null )
+        {
+            lastDoor = FindAnyObjectByType<LastDoor>();
+        }
+
     }
 
     // Update is called once per frame
@@ -19,8 +24,20 @@ public class DoorUnlock : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(door);
-            Destroy(gameObject);
+            if (door != null)
+            {
+                Destroy(door);
+                Destroy(gameObject);
+
+            }
+            else
+            {
+                lastDoor.numOfButtons--;
+                Destroy(gameObject);
+
+            }
+
         }
     }
+    
 }

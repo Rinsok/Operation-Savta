@@ -23,10 +23,12 @@ public class HPBar : MonoBehaviour
         {
             health = 4;
             numOfHearts = 4;
-
-            ortal.SetHP(4);
-            moti.SetHP(4);
-            exo.SetHP(4);
+            ortal.updateHP(health);
+            moti.updateHP(health);
+            exo.updateHP(health);
+            ortal.SetHP(numOfHearts);
+            moti.SetHP(numOfHearts);
+            exo.SetHP(numOfHearts);
         }
 
         else

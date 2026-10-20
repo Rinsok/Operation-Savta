@@ -43,6 +43,6 @@ public abstract class PlayableCharacter : MonoBehaviour, IDamagable
     {
         currentHP = newCurrentHP;
     }
-
+    public abstract void DoIdle();
 
 }

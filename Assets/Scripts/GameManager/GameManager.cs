@@ -12,17 +12,6 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         
-        if (collectedTotem)
-        {
-            bar.numOfHearts = 4;
-            bar.health = 4;
-            bar.ortal.SetHP(4);
-            bar.moti.SetHP(4);
-            bar.exo.SetHP(4);
-            bar.ortal.updateHP(4);
-            bar.moti.updateHP(4);
-            bar.exo.updateHP(4);
-        }
         bar = FindAnyObjectByType<HPBar>();
         if (Instance == null)
         {

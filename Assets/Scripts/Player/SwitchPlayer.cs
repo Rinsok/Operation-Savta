@@ -107,9 +107,11 @@ public class SwitchPlayer : MonoBehaviour
         return Mathf.Min(players[0].GetComponent<PlayableCharacter>().GetCurrentHP(), players[1].GetComponent<PlayableCharacter>().GetCurrentHP(), players[2].GetComponent<PlayableCharacter>().GetCurrentHP());
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void SetAllIdle()
     {
-
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].GetComponent<PlayableCharacter>().DoIdle();
+        }
     }
 }

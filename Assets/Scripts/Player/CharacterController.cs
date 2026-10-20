@@ -14,11 +14,6 @@ public class CharacterController : PlayableCharacter
     private bool isSpecial = false;
     void Start()
     {
-        currentHP = maxHP;
-        if (GameManager.Instance.collectedTotem)
-        {
-            currentHP += 1;
-        }
     }
 
 
@@ -80,7 +75,11 @@ public class CharacterController : PlayableCharacter
     {
         TakeDamage(1);
     }
-
+    public override void DoIdle()
+    {
+        anim.SetBool("isRun", false);
+        anim.SetBool("isJump", false);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         

@@ -69,5 +69,10 @@ public class MotiController : PlayableCharacter
     {
         TakeDamage(1);
     }
-
+    public override void DoIdle()
+    {
+        motiAnim.SetBool("isRun", false);
+        motiAnim.SetBool("isJump", false);
+        motiAnim.SetBool("isShoot", false);
+    }
 }
